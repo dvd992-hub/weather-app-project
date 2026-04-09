@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/Corso Generation AI Training for Software Developer/weatherapp/src/styles/style.css" type="text/css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="weather-card">
+            <h1 style="text-align: center; color: white; margin-bottom: 30px;">🌤️ App Meteo</h1>
+
+            <div class="search-container">
+                <input type="text" id="cityInput" class="search-input" placeholder="Inserisci città...">
+                <button onclick="searchWeather()" class="search-btn">Cerca</button>
+                <button onclick="searchWeather(true)" class="search-btn" style="background: #4ecdc4;">🔄
+                    Aggiorna</button>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">⏳ Caricamento...</div>
+            <div id="error" class="error" style="display: none;"></div>
+
+            <div id="weatherResult" style="display: none;">
+                <div class="main-weather">
+                    <div class="city-name" id="cityName"></div>
+                    <div class="temperature" id="temperature"></div>
+                    <div id="condition" style="font-size: 1.2em;"></div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <div class="detail-icon">💨</div>
+                        <div class="detail-label">Vento</div>
+                        <div class="detail-value" id="windSpeed"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">💧</div>
+                        <div class="detail-label">Umidità</div>
+                        <div class="detail-value" id="humidity"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🕐</div>
+                        <div class="detail-label">Aggiornato</div>
+                        <div class="detail-value" id="updateTime"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📦</div>
+                        <div class="detail-label">Cache</div>
+                        <div class="detail-value" id="cacheStatus"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="forecastContainer" class="weather-card" style="display: none;">
+            <h3 style="color: white; margin-bottom: 20px;">📊 Previsioni 5 giorni</h3>
+            <div id="forecastGrid" class="forecast-grid"></div>
+        </div>
+    </div>
+
+    <!-- Per il confronto città -->
+    <div class="weather-card">
+        <h3 style="color: white; margin-bottom: 15px;">🏙️ Confronta Città</h3>
+        <div class="search-container">
+            <input type="text" id="multiCitiesInput" class="search-input" placeholder="Es: Roma, Milano, Napoli, Firenze">
+            <button onclick="compareCitiesInput()" class="search-btn" style="background: #4ecdc4;">Confronta</button>
+        </div>
+        <div id="comparisonContainer" style="display: none;"></div>
+    </div>
+    
+    <!-- Icona meteo e cache status -->
+    <div class="main-weather">
+        <div id="weatherIcon" style="font-size: 4em; margin-bottom: 10px;"></div>
+        <div class="city-name" id="cityName"></div>
+        <div class="temperature" id="temperature"></div>
+        <div id="condition" style="font-size: 1.2em;"></div>
+        <div id="cacheStatus" style="font-size: 0.8em; margin-top: 10px; opacity: 0.7;"></div>
+    </div>
+    
+    <!-- Messaggio successo -->
+    <div id="successMessage"
+        style="display: none; background: #4ecdc4; color: white; padding: 10px; border-radius: 10px; margin: 10px 0; text-align: center;">
+    </div>
+
+    <script type="module" src="/Corso Generation AI Training for Software Developer/weatherapp/src/main.js"></script>
+
+</body>
+    </html>
